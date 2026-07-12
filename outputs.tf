@@ -1,3 +1,7 @@
+output "application_load_balancer_frontends_id" {
+  description = "Map of id values across all application_load_balancer_frontends, keyed the same as var.application_load_balancer_frontends"
+  value       = { for k, v in azurerm_application_load_balancer_frontend.application_load_balancer_frontends : k => v.id }
+}
 output "application_load_balancer_frontends_application_load_balancer_id" {
   description = "Map of application_load_balancer_id values across all application_load_balancer_frontends, keyed the same as var.application_load_balancer_frontends"
   value       = { for k, v in azurerm_application_load_balancer_frontend.application_load_balancer_frontends : k => v.application_load_balancer_id }
